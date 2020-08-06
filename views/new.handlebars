@@ -1,0 +1,27 @@
+<div class="container">
+  <h3>請輸入您的支出！</h3>
+  <form action="/records" method="POST">
+    <div class="form-group">
+      <label for="name">名稱</label>
+      <input type="text" class="form-control" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="date">日期</label>
+      <input type="date" class="form-control" name="date" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">類別</label>
+      <select id="category" class="form-control" name="category" required>
+        <option selected value disabled>請選擇類別！</option>
+        {{#each categories}}
+        <option value={{this.category}}>{{this.category}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="amount">金額</label>
+      <input type="text" class="form-control" name="amount" required>
+    </div>
+    <button type="submit" class="btn btn-primary">新增支出</button>
+  </form>
+</div>
