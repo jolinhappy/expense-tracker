@@ -1,1 +1,33 @@
-<h1>TEST</h1>
+<div class="container">
+  <div class="total-amount">
+    <h3>總金額：</h3>
+  </div>
+  <ul class="list-group-item">
+    {{#each records}}
+    <li class="list group-item" style="list-style-type: none;">
+      <div class="row">
+        <div class="row mr-auto">
+          <div class="icon mr-auto">
+
+          </div>
+          <div class="col">
+            <h4>{{this.name}}</h4>
+            <h6>{{this.date}}</h6>
+          </div>
+          <div class="amount">
+            {{{this.amount}}}
+          </div>
+        </div>
+        <div class="button">
+          <a href="./records/{{this._id}}/edit" style="text-decoration: none;">
+            <button type="button" class="btn btn-success">修改</button>
+          </a>
+          <form action="./records/{{this._id}}/delete" method="POST" style="display: inline">
+            <button type="submit" class="btn btn-danger">刪除</a>
+          </form>
+        </div>
+    </li>
+    {{/each}}
+  </ul>
+  <a href="./records/new" type="button" class="btn btn-danger">新增支出</a>
+</div>

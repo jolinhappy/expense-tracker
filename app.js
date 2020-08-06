@@ -19,7 +19,12 @@ db.once('open', () => {
 
 
 app.get('/', (req, res) => {
-  res.render('index')
+  Record.find()
+    .lean()
+    .then(records => {
+      return res.render('index', { records })
+    })
+    .catch(error => console.log('error!'))
 })
 
 app.listen(port, () => {
