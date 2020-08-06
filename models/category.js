@@ -10,3 +10,6 @@ const categorySchema = new Schema({
     require: true
   }
 })
+
+
+module.exports = mongoose.model('Category', categorySchema)
