@@ -1,9 +1,11 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const exphbs = require('express-handlebars')
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
 
 //mongoose setting
-// const mongoose = require('mongoose')
 const mongoose = require('mongoose')
 const Record = require('./models/record')
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -17,7 +19,7 @@ db.once('open', () => {
 
 
 app.get('/', (req, res) => {
-  res.send('hihi')
+  res.render('index')
 })
 
 app.listen(port, () => {
