@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
+const helper = require('./helper')
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
@@ -17,7 +18,7 @@ db.once('open', () => {
   console.log('mongodb connect!')
 })
 
-
+//render index page
 app.get('/', (req, res) => {
   Record.find()
     .lean()
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
     })
     .catch(error => console.log('error!'))
 })
+
 
 app.listen(port, () => {
   console.log(`app are listening on port ${port}`)
