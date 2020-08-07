@@ -25,11 +25,16 @@ db.once('open', () => {
 
 //render index page & calculate total amount
 app.get('/', (req, res) => {
-  Record.find()
+  Category.find()
     .lean()
-    .then(records => {
-      const totalAmount = records.map(record => record.amount).reduce((a, b) => { return a + b }, 0)
-      return res.render('index', { records, totalAmount })
+    .then(categories => {
+      Record.find()
+        .lean()
+        .then(records => {
+          const totalAmount = records.map(record => record.amount).reduce((a, b) => { return a + b }, 0)
+          return res.render('index', { records, totalAmount, categories })
+        })
+        .catch(error => console.log(error))
     })
     .catch(error => console.log(error))
 })
@@ -75,6 +80,26 @@ app.post('/records/:id/delete', (req, res) => {
     .then(record => record.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
+})
+
+//filter
+app.get('/filter/:id', (req, res) => {
+  Category.find()
+    .lean()
+    .then(categories => {
+      Record.find()
+        .lean()
+        .then(filteredRecords => {
+          const params = req.params.id
+          const records = filteredRecords.filter(filteredRecord => { return filteredRecord.category === params })
+          const totalAmount = records.map(filteredRecord => filteredRecord.amount).reduce((a, b) => { return a + b }, 0)
+          res.render('index', { records, categories, params, totalAmount })
+        })
+        .catch(error => console.log(error))
+    })
+    .catch(error => console.log(error))
+
+
 })
 
 

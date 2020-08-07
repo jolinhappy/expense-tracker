@@ -1,4 +1,14 @@
 <div class="container">
+  <div class="dropdown">
+    <select class="form-control" id="category" name="category" onchange="location = this.value;">
+      <option value="/">全部</option>
+      <option value="/filter/交通出行" {{#ifEquals params '交通出行'}}selected{{/ifEquals}}>交通出行</option>
+      <option value="/filter/餐飲食品" {{#ifEquals params '餐飲食品'}}selected{{/ifEquals}}>餐飲食品</option>
+      <option value="/filter/休閒娛樂" {{#ifEquals params '休閒娛樂'}}selected{{/ifEquals}}>休閒娛樂</option>
+      <option value="/filter/家居物業" {{#ifEquals params '家居物業'}}selected{{/ifEquals}}>家居物業</option>
+      <option value="/filter/其他" {{#ifEquals params '其他'}}selected{{/ifEquals}}>其他</option>
+    </select>
+  </div>
   <div class="total-amount">
     <h3>總金額：{{totalAmount}}</h3>
   </div>
