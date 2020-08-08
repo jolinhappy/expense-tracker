@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
@@ -14,6 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(routes)
 
-app.listen(port, () => {
-  console.log(`app is listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`app is listening on port ${PORT}`)
 })

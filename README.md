@@ -25,7 +25,7 @@
 <br>```npm install nodemon```
 
 5.安裝種子資料
-<br>```npm run seeds```
+<br>```npm run seed```
 
 6.啟動程式
 <br>```npm run dev```
