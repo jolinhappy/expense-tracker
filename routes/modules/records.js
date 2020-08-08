@@ -8,6 +8,7 @@ const helper = require('../../helper')
 router.get('/new', (req, res) => {
   Category.find()
     .lean()
+    .sort({ _id: 'asc' })
     .then(categories => res.render('new', { categories }))
     .catch(error => console.log(error))
 })

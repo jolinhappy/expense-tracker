@@ -3,6 +3,7 @@ const router = express.Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
 const helper = require('../../helper')
+
 //render index page & calculate total amount
 router.get('/', (req, res) => {
   Category.find()
