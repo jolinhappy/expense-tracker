@@ -44,7 +44,7 @@
             <a href="./records/{{this._id}}/edit" style="text-decoration: none;">
               <button type="button" class="btn btn-success" style="font-size: 18px; font-weight: bold">修改</button>
             </a>
-            <form action="./records/{{this._id}}/delete" method="POST" style="display: inline">
+            <form action="/records/{{this._id}}?_method=DELETE" method="POST" style="display: inline">
               <button type="submit" class="btn btn-danger" style="font-size: 18px; font-weight: bold">刪除</a>
             </form>
           </div>

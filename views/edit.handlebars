@@ -1,7 +1,7 @@
 <div class="container">
   <div class="colunm mx-auto mt-5" style="width: 600px;">
     <h3 class="text-center" style="font-size: 40px; font-weight: bold">請修改你的支出！</h3>
-    <form action="/records/{{record._id}}/edit" method="POST" class="form-area mt-5">
+    <form action="/records/{{record._id}}?_method=PUT" method="POST" class="form-area mt-5">
       <div class="form-group">
         <label for="name" style="font-size: 20px; font-weight: bold">名稱</label>
         <input type="text" class="form-control" name="name" value="{{record.name}}" style="font-size: 22px;" required>

@@ -4,9 +4,7 @@ const port = 3000
 const exphbs = require('express-handlebars')
 const helper = require('./helper')
 const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: true }))
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+const methodOverride = require('method-override')
 
 const Record = require('./models/record')
 const Category = require('./models/category')
@@ -23,6 +21,11 @@ db.once('open', () => {
   console.log('mongodb connect!')
 })
 
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 //render index page & calculate total amount
 app.get('/', (req, res) => {
   Category.find()
@@ -61,7 +64,7 @@ app.get('/records/:id/edit', (req, res) => {
     .then(record => res.render('edit', { record }))
     .catch(error => console.log(error))
 })
-app.post('/records/:id/edit', (req, res) => {
+app.put('/records/:id', (req, res) => {
   const id = req.params.id
   const editRecord = req.body
   return Record.findById(id)
@@ -74,7 +77,7 @@ app.post('/records/:id/edit', (req, res) => {
 })
 
 //delete
-app.post('/records/:id/delete', (req, res) => {
+app.delete('/records/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())
