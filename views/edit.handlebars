@@ -1,29 +1,48 @@
 <div class="container">
-  <h3>請修改您的支出！</h3>
-  <form action="/records/{{record._id}}/edit" method="POST">
-    <div class="form-group">
-      <label for="name">名稱</label>
-      <input type="text" class="form-control" name="name" value="{{record.name}}" required>
-    </div>
-    <div class="form-group">
-      <label for="date">日期</label>
-      <input type="date" class="form-control" name="date" value="{{record.date}}" required>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">類別</label>
-      <select id="category" class="form-control" name="category" required>
-        <option disabled>請選擇類別！</option>
-        <option value="家居物業" {{#ifEquals record.category '家居物業'}}selected value{{/ifEquals}}>家居物業</option>
-        <option value="交通出行" {{#ifEquals record.category '交通出行'}}selected value{{/ifEquals}}>交通出行</option>
-        <option value="休閒娛樂" {{#ifEquals record.category '休閒娛樂'}}selected value{{/ifEquals}}>休閒娛樂</option>
-        <option value="餐飲食品" {{#ifEquals record.category '餐飲食品'}}selected value{{/ifEquals}}>餐飲食品</option>
-        <option value="其他" {{#ifEquals record.category '其他'}}selected value{{/ifEquals}}>其他</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="amount">金額</label>
-      <input type="text" class="form-control" name="amount" value="{{record.amount}}" required>
-    </div>
-    <button type="submit" class="btn btn-primary">儲存修改</button>
-  </form>
+  <div class="colunm mx-auto mt-5" style="width: 600px;">
+    <h3 class="text-center" style="font-size: 40px; font-weight: bold">請修改你的支出！</h3>
+    <form action="/records/{{record._id}}/edit" method="POST" class="form-area mt-5">
+      <div class="form-group">
+        <label for="name" style="font-size: 20px; font-weight: bold">名稱</label>
+        <input type="text" class="form-control" name="name" value="{{record.name}}" style="font-size: 22px;" required>
+      </div>
+      <div class="form-group">
+        <label for="date" style="font-size: 20px; font-weight: bold">日期</label>
+        <input type="date" class="form-control" name="date" value="{{record.date}}" style="font-size: 22px;" required>
+      </div>
+      <div class="form-group">
+        <label for="category" style="font-size: 20px; font-weight: bold">類別</label>
+        <select id="category" class="form-control" name="category" style="font-size: 22px;" required>
+          <option style="font-size: 22px;" disabled>請選擇類別！</option>
+          <option value="家居物業" style="font-size: 22px;" {{#ifEquals record.category '家居物業'}}selected value{{/ifEquals}}>
+            家居物業</option>
+          <option value="交通出行" style="font-size: 22px;" {{#ifEquals record.category '交通出行'}}selected value{{/ifEquals}}>
+            交通出行</option>
+          <option value="休閒娛樂" style="font-size: 22px;" {{#ifEquals record.category '休閒娛樂'}}selected value{{/ifEquals}}>
+            休閒娛樂</option>
+          <option value="餐飲食品" style="font-size: 22px;" {{#ifEquals record.category '餐飲食品'}}selected value{{/ifEquals}}>
+            餐飲食品</option>
+          <option value="其他" style="font-size: 22px;" {{#ifEquals record.category '其他'}}selected value{{/ifEquals}}>其他
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="amount" style="font-size: 20px; font-weight: bold">金額</label>
+        <input type="text" class="form-control" name="amount" value="{{record.amount}}" style="font-size: 22px;"
+          required>
+      </div>
+      <div class="edit row my-auto mx-auto justify-content-center" style="width: 600px;">
+        <div class="cancel mr-5 mt-4">
+          <a href="/">
+            <button type="button" class="btn btn-danger"
+              style="font-size: 18px; font-weight: bold; width: 120px;">取消</button>
+          </a>
+        </div>
+        <div class="create ml-5 mt-4">
+          <button type="submit" class="btn btn-warning"
+            style="font-size: 18px; font-weight: bold; width: 120px;">儲存修改</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,27 +1,40 @@
 <div class="container">
-  <h3>請輸入您的支出！</h3>
-  <form action="/records" method="POST">
-    <div class="form-group">
-      <label for="name">名稱</label>
-      <input type="text" class="form-control" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="date">日期</label>
-      <input type="date" class="form-control" name="date" required>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">類別</label>
-      <select id="category" class="form-control" name="category" required>
-        <option selected value disabled>請選擇類別！</option>
-        {{#each categories}}
-        <option value={{this.category}}>{{this.category}}</option>
-        {{/each}}
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="amount">金額</label>
-      <input type="text" class="form-control" name="amount" required>
-    </div>
-    <button type="submit" class="btn btn-primary">新增支出</button>
-  </form>
+  <div class="colunm mx-auto mt-5" style="width: 600px;">
+    <h3 class="text-center" style="font-size: 40px; font-weight: bold">請輸入你的支出！</h3>
+    <form action="/records" method="POST" class="form-area mt-5">
+      <div class="form-group">
+        <label for="name" style="font-size: 20px; font-weight: bold">名稱</label>
+        <input type="text" class="form-control" name="name" style="font-size: 22px;" required>
+      </div>
+      <div class="form-group">
+        <label for="date" style="font-size: 20px; font-weight: bold">日期</label>
+        <input type="date" class="form-control" name="date" style="font-size: 22px;" required>
+      </div>
+      <div class="form-group">
+        <label for="category" style="font-size: 20px; font-weight: bold">類別</label>
+        <select id="category" class="form-control" name="category" style="font-size: 22px;" required>
+          <option style="font-size: 22px;" selected value disabled>請選擇類別！</option>
+          {{#each categories}}
+          <option value={{this.category}} style="font-size: 22px;">{{this.category}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="amount" style="font-size: 20px; font-weight: bold">金額</label>
+        <input type="text" class="form-control" name="amount" style="font-size: 22px;" required>
+      </div>
+      <div class="create row my-auto mx-auto justify-content-center" style="width: 600px;">
+        <div class="cancel mr-5 mt-4">
+          <a href="/">
+            <button type="button" class="btn btn-danger"
+              style="font-size: 18px; font-weight: bold; width: 120px;">取消</button>
+          </a>
+        </div>
+        <div class="create ml-5 mt-4">
+          <button type="submit" class="btn btn-warning"
+            style="font-size: 18px; font-weight: bold; width: 120px;">新增支出</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
