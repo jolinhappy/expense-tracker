@@ -25,5 +25,9 @@ db.once('open', () => {
       icon: '<i class="fas fa-pen fa-3x"></i>'
     }
   )
-  console.log('done')
+    .then(() => {
+      db.close()
+      console.log('category done!')
+    })
+    .catch(error => console.log(error))
 })
