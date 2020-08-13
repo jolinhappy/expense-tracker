@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 })
 
 //filter
-router.get('/filter/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Category.find()
     .lean()
     .then(categories => {
